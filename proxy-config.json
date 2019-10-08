@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "https://hrhis.hisptz.org/",
+    "secure": "false",
+    "auth": "",
+    "changeOrigin": "true"
+  },
+  "/": {
+    "target": "https://hrhis.hisptz.org/",
+    "secure": "false",
+    "auth": "",
+    "changeOrigin": "true"
+  }
+}

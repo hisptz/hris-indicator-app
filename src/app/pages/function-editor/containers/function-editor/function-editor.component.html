@@ -1,0 +1,26 @@
+<div class="function-editor">
+  <div class="card-header">
+    <span> Indicator {{ editorMode }} Editor </span>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <mat-card>
+        <div class="alert h2-notification">
+          The expression defines how the indicator is calculated. Tip: use
+          d2:condition('bool-expr',true-val,false-val) d2:daysBetween(date,date)
+          d2:zing(x) d2:oizp(x)
+        </div>
+        <app-indicator-expression-form></app-indicator-expression-form>
+        <div *ngIf="expressionStatus">
+          <app-indicator-expression-validator></app-indicator-expression-validator>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-4">
+      <mat-tab-group mat-stretch-tabs>
+        <mat-tab label="Fields"> Content 1 </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

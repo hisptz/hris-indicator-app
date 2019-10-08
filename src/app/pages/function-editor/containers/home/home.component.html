@@ -1,0 +1,22 @@
+<p style="margin: 60px">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="detailsFormGroup">
+      <ng-template matStepLabel>
+        Indicator expression
+      </ng-template>
+      <app-indicator-details class="stepper-content"></app-indicator-details>
+    </mat-step>
+    <mat-step [stepControl]="expressionFormGroup">
+      <ng-template matStepLabel>Edit Expression</ng-template>
+      <app-function-editor class="stepper-content" [editorMode]="'Expression'">
+      </app-function-editor>
+    </mat-step>
+    <mat-step [stepControl]="filterFormGroup">
+      <ng-template matStepLabel>Edit Filter</ng-template>
+      <app-function-editor
+        class="stepper-content"
+        [editorMode]="'Filter'"
+      ></app-function-editor>
+    </mat-step>
+  </mat-horizontal-stepper>
+</p>

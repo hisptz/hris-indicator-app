@@ -1,0 +1,22 @@
+<form [formGroup]="editorForm">
+  <app-indicator-text-box
+    [expressionFormula]="editorForm?.value?.expression"
+    (expressionChanged)="onExpressionChanges($event)"
+    (cursorPosition)="onGetCursorPosition($event)"
+  ></app-indicator-text-box>
+  <div class="row">
+    <div class="col">
+      <mat-card-actions>
+        <button
+          class="ml-2 mt-1"
+          type="button"
+          mat-stroked-button
+          *ngFor="let button of operations"
+          (click)="onSetOperator($event, button?.operation)"
+        >
+          {{ button?.icon }}
+        </button>
+      </mat-card-actions>
+    </div>
+  </div>
+</form>
