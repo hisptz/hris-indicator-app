@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { IndicatorExpressionFormComponent } from '../../components/indicator-expression-form/indicator-expression-form.component';
 @Component({
   selector: 'app-function-editor',
   templateUrl: './function-editor.component.html',
@@ -8,9 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FunctionEditorComponent implements OnInit {
   expressionStatus = 'OK';
   @Input() editorMode;
-  constructor() {}
+  @Input() fields;
+  @ViewChild(IndicatorExpressionFormComponent, { static: false })
+  indicatorExpressionForm: IndicatorExpressionFormComponent;
 
-  ngOnInit() {
-    console.log(this.editorMode);
+  constructor() {}
+  onClickField(field) {
+    this.indicatorExpressionForm.onAppendFieldUid(field);
   }
+  ngOnInit() {}
 }

@@ -6,3 +6,9 @@
 .h2-notification {
   background-color: #e4f2fd;
 }
+
+.field-item {
+  padding-left: 0px;
+  padding-top: 0px !important;
+  border-bottom: 1px dotted #8d8d8d !important;
+}

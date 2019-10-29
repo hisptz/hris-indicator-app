@@ -1,5 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 @Component({
   selector: 'app-indicator-text-box',
   templateUrl: './indicator-text-box.component.html',
@@ -7,8 +14,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class IndicatorTextBoxComponent implements OnInit {
   @Input() expressionFormula;
+  @Input() editorMode;
   @Output() expressionChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() cursorPosition: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() {}
   ngOnInit() {}
 
@@ -27,5 +36,21 @@ export class IndicatorTextBoxComponent implements OnInit {
   fetchCursorPosition(event) {
     const textBoxElement = event ? event.srcElement : null;
     this.cursorPosition.emit(textBoxElement.selectionStart);
+    return textBoxElement.selectionStart;
+  }
+  setCursorPosition(event, cursorPosition) {
+    const textBoxElement = event ? event.srcElement : null;
+    textBoxElement.selectionStart(cursorPosition);
+  }
+
+  onSetCursorPosition(expression, cursorPosition) {
+    var elem = document.getElementById(`${this.editorMode}-textarea`);
+    elem.focus();
+    elem.addEventListener('focus', event => {
+      if (event) {
+        const textBoxElement = event ? event.srcElement : null;
+        // textBoxElement.selectionStart = cursorPosition;
+      }
+    });
   }
 }

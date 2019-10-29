@@ -1,15 +1,62 @@
 <p style="margin: 60px">
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-horizontal-stepper
+    class="grayed-background"
+    [linear]="isLinear"
+    #stepper
+  >
     <mat-step [stepControl]="detailsFormGroup">
       <ng-template matStepLabel>
-        Indicator expression
+        Indicator details
       </ng-template>
       <app-indicator-details class="stepper-content"></app-indicator-details>
+      <div class="row justify-content-between mt-1">
+        <div class="col-4">
+          <button disabled mat-button matStepperPrevious>
+            Back
+          </button>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+          <button mat-flat-button color="primary" (click)="stepper.save()">
+            Save
+          </button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+
+        <div class="col-4">
+          <button mat-button matStepperNext style="float: right">
+            Next
+          </button>
+        </div>
+      </div>
     </mat-step>
     <mat-step [stepControl]="expressionFormGroup">
       <ng-template matStepLabel>Edit Expression</ng-template>
-      <app-function-editor class="stepper-content" [editorMode]="'Expression'">
+      <app-function-editor
+        class="stepper-content"
+        [editorMode]="'Expression'"
+        [fields]="fields$ | async"
+      >
       </app-function-editor>
+      <div class="row justify-content-between mt-1">
+        <div class="col-4">
+          <button mat-button matStepperPrevious>
+            Back
+          </button>
+        </div>
+
+        <div class="col-4 d-flex justify-content-center">
+          <button mat-flat-button color="primary" (click)="stepper.save()">
+            Save
+          </button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+
+        <div class="col-4">
+          <button mat-button matStepperNext style="float: right">
+            Next
+          </button>
+        </div>
+      </div>
     </mat-step>
     <mat-step [stepControl]="filterFormGroup">
       <ng-template matStepLabel>Edit Filter</ng-template>
@@ -17,6 +64,25 @@
         class="stepper-content"
         [editorMode]="'Filter'"
       ></app-function-editor>
+      <div class="row justify-content-between mt-1">
+        <div class="col-4">
+          <button mat-button matStepperPrevious>
+            Back
+          </button>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+          <button mat-flat-button color="primary" (click)="stepper.save()">
+            Save
+          </button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+
+        <div class="col-4">
+          <button disabled mat-button matStepperNext style="float: right">
+            Next
+          </button>
+        </div>
+      </div>
     </mat-step>
   </mat-horizontal-stepper>
 </p>

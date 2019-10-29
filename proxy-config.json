@@ -2,13 +2,11 @@
   "/api": {
     "target": "https://hrhis.hisptz.org/",
     "secure": "false",
-    "auth": "",
-    "changeOrigin": "true"
+    "changeOrigin": true
   },
   "/": {
     "target": "https://hrhis.hisptz.org/",
     "secure": "false",
-    "auth": "",
-    "changeOrigin": "true"
+    "changeOrigin": true
   }
 }

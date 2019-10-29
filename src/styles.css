@@ -8,4 +8,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: rgb(243, 243, 243);
+}
+
+.grayed-background {
+  background-color: rgb(243, 243, 243);
 }

@@ -1,1 +1,4 @@
-<app-indicator-details-form></app-indicator-details-form>
+<app-indicator-details-form
+  [formsList]="forms$ | async"
+  (onSetCurrentForm)="setCurrentForm($event)"
+></app-indicator-details-form>

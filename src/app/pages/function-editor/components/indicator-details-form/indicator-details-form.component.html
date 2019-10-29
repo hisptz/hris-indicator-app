@@ -1,11 +1,58 @@
-<form [formGroup]="editorForm">
-  <div class="row">
-    <div class="col">
-      <mat-card-actions>
-        <button class="ml-2 mt-1" type="button" mat-stroked-button>
-          Save
-        </button>
-      </mat-card-actions>
+<mat-card class=" px-4">
+  <form [formGroup]="indicatorDetailsForm">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="form-group full-width-box">
+          <mat-select
+            placeholder="Form"
+            formControlName="form"
+            (blur)="setCurrentForm($event)"
+            required
+          >
+            <span *ngFor="let form of formsList">
+              <mat-option value="{{ form.id }}">{{ form.name }}</mat-option>
+            </span>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-group full-width-box">
+          <input matInput placeholder="Name" formControlName="name" required />
+        </mat-form-field>
+        <mat-form-field class="form-group full-width-box">
+          <input
+            matInput
+            placeholder="ShortName"
+            formControlName="shortName"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-group full-width-box">
+          <input matInput placeholder="Code" formControlName="code" />
+        </mat-form-field>
+        <mat-form-field class="form-group full-width-box">
+          <input
+            matInput
+            placeholder="Description"
+            formControlName="description"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="form-group full-width-box">
+          <input
+            matInput
+            placeholder="AggregationType"
+            formControlName="aggregationType"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="form-group full-width-box">
+          <input
+            matInput
+            placeholder="AnalyticsType"
+            formControlName="analyticsType"
+            required
+          />
+        </mat-form-field>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</mat-card>
