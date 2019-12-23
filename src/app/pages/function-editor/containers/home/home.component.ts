@@ -22,5 +22,8 @@ export class HomeComponent implements OnInit {
     this.fields$ = this.store.select(getCurrentFormFields);
   }
 
+  saveForm() {}
+  resetForm() {}
+
   ngOnInit() {}
 }

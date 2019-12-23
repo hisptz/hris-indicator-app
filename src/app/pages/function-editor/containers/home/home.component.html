@@ -4,7 +4,7 @@
     [linear]="isLinear"
     #stepper
   >
-    <mat-step [stepControl]="detailsFormGroup">
+    <mat-step>
       <ng-template matStepLabel>
         Indicator details
       </ng-template>
@@ -16,10 +16,10 @@
           </button>
         </div>
         <div class="col-4 d-flex justify-content-center">
-          <button mat-flat-button color="primary" (click)="stepper.save()">
+          <button mat-flat-button color="primary" (click)="saveForm()">
             Save
           </button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="resetForm()">Reset</button>
         </div>
 
         <div class="col-4">
@@ -29,7 +29,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step [stepControl]="expressionFormGroup">
+    <mat-step>
       <ng-template matStepLabel>Edit Expression</ng-template>
       <app-function-editor
         class="stepper-content"
@@ -45,10 +45,10 @@
         </div>
 
         <div class="col-4 d-flex justify-content-center">
-          <button mat-flat-button color="primary" (click)="stepper.save()">
+          <button mat-flat-button color="primary" (click)="saveForm()">
             Save
           </button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="resetForm()">Reset</button>
         </div>
 
         <div class="col-4">
@@ -58,7 +58,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step [stepControl]="filterFormGroup">
+    <mat-step>
       <ng-template matStepLabel>Edit Filter</ng-template>
       <app-function-editor
         class="stepper-content"
@@ -71,10 +71,10 @@
           </button>
         </div>
         <div class="col-4 d-flex justify-content-center">
-          <button mat-flat-button color="primary" (click)="stepper.save()">
+          <button mat-flat-button color="primary" (click)="saveForm()">
             Save
           </button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="resetForm()">Reset</button>
         </div>
 
         <div class="col-4">
